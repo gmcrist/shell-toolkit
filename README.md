@@ -30,17 +30,17 @@ Library of useful functions, variables, and definitions for bash scripting.
 These files/functions have accumulated over the years when used in a variety of personal projects and now merged into a single library for better re-use and distribution.
 
 
-## Console Utilities
+### Console Utilities
 
-[color.sh](libstk/color.sh) provides a set of definitions are used to help with text output/display on the terminal. Requires `tput` to function
+[colors.sh](libstk/colors.sh) provides a set of definitions are used to help with text output/display on the terminal. Requires `tput` to function
 
 
-## Network / Internet
+### Network / Internet
 
 [download.sh](libstk/download.sh) provides a set of functions for various network/internet related functions.
 
 
-## Logging
+### Logging
 
 [log.sh](libstk/log.sh) provides a set of functions for logging within shell scripts. Includes configuration to customize log messages, such as:
 * Prefixed Labels
