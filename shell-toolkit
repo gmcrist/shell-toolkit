@@ -1,0 +1,52 @@
+#!/bin/bash
+# Copyright 2021 Greg Crist <gmcrist@gmail.com>
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+function __libstk_source_check() {
+    if [[ ${FUNCNAME[-1]} = "source" ]]; then
+        return 1
+    fi
+}
+
+function __libstk_usage() {
+    echo -e "Error: $1"
+    echo -e ""
+    echo -e "This should only be sourced from a bash shell script, such as:"
+    echo -e ""
+    echo -e "\t#!/bin/bash"
+    echo -e "\tsource shell-toolkit"
+    echo -e ""
+}
+
+if [[ "$0" != "${BASH_SOURCE}" ]]; then
+    __libstk_source_check
+    if [ $? -ne 0 ]; then
+        __libstk_usage "Cannot source this script from the shell"
+        return 1
+    fi
+
+    libstk=$(dirname ${BASH_SOURCE})/libstk
+
+    if [ ! -d ${libstk} ]; then
+        echo "ERROR: Could not source libstk modules"
+        exit 1
+    fi
+
+    for module in ${libstk}/*; do
+        source ${module}
+    done
+else
+    __libstk_usage "Cannot execute this script directly"
+    exit 1
+fi
