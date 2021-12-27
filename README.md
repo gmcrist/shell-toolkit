@@ -10,7 +10,7 @@ Shell Toolkit is a library of useful functions, variables, and definitions to be
 Install 'shell-toolkit' and the library files into a location that can be sourced in your path.
 
 ```bash
-./install /usr/local/bin
+./install.sh /usr/local/bin
 ```
 
 ## Usage

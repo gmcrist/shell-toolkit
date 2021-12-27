@@ -13,7 +13,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-source shell-toolkit
+source ./shell-toolkit 2>/dev/null || {
+    echo "shell-toolkit is required for installation"
+    exit 1
+}
 
 declare -a install_items
 declare -a rollback
@@ -25,11 +28,13 @@ install_items=(
 
 function usage() {
     self=$(basename $0)
+    echo "Shell Toolkit"
+    echo ""
     echo "Usage: ${self} <DESTINATION>"
     echo ""
 }
 
-function install() {
+function install_stk() {
     if [ $# -lt 1 ]; then
         usage
         return 1
@@ -70,5 +75,5 @@ function install() {
     done
 }
 
-install $@
+install_stk $@
 exit $?

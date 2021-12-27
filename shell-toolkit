@@ -20,10 +20,13 @@ function __libstk_source_check() {
 }
 
 function __libstk_usage() {
-    echo -e "Error: $1"
-    echo -e ""
-    echo -e "This should only be sourced from a bash shell script, such as:"
-    echo -e ""
+    if [ $# -gt 0 ]; then
+        echo -e "Error: $1"
+        echo -e ""
+        echo -e "This should only be sourced from a bash shell script."
+        echo -e ""
+    fi
+    echo -e "Usage:"
     echo -e "\t#!/bin/bash"
     echo -e "\tsource shell-toolkit"
     echo -e ""
