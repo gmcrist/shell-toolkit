@@ -40,7 +40,7 @@ function download() {
     # Attempt to use curl first
     curl=$(which curl)
     if [ $? -eq 0 ]; then
-        _output=$(${curl} -f --no-progress-meter -o ${dest} ${src} 2>&1)
+        _output=$(${curl} -f --silent --show-error -o ${dest} ${src} 2>&1)
         log_auto $? ${_output}
         return $?
     fi
