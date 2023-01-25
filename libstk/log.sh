@@ -1,5 +1,5 @@
-#!/bin/bash
-# Copyright 2010-2014,2021 Greg Crist <gmcrist@gmail.com>
+#!/usr/bin/env bash
+# Copyright 2010-2014,2021-2023 Greg Crist <gmcrist@gmail.com>
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.

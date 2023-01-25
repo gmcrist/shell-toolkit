@@ -18,7 +18,7 @@ Install 'shell-toolkit' and the library files into a location that can be source
 Source the library into your script:
 
 ```bash
-#!/bin/bash
+#!/usr/bin/env bash
 source shell-toolkit
 ```
 
